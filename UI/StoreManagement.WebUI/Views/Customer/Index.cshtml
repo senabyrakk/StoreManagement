@@ -1,0 +1,103 @@
+﻿@model List<Foundation.Contract.CustomerContract>
+@{
+    Layout = "_Layout";
+}
+
+<div class="page-wrapper-row full-height">
+    <div class="page-wrapper-middle">
+        <div class="page-container">
+            <div class="page-content-wrapper">
+                <div class="page-head">
+                    <div class="container">
+                        <div class="page-title">
+                            <h1>
+                                Ürünler
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="container">
+                        <div class="page-content-inner">
+                            <div class="mt-content-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-social-dribbble font-green"></i>
+                                                    <span class="caption-subject font-green bold uppercase">Müşteriler</span>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="btn-group">
+                                                        <a class="btn green btn-outline btn-circle btn-sm" href="~/customer/save/0">
+                                                            Yeni Ekle
+                                                            <i class="fa fa-plus"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-scrollable">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Adı </th>
+                                                                <th> EMail </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model)
+                                                            {
+                                                            <tr>
+                                                                <td> @item.Name</td>
+                                                                <td> @item.Email</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <a href="~/customer/save/@item.Id" class="btn btn-outline btn-circle btn-sm green">
+                                                                            <i class="fa fa-edit"></i> Düzenle
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="btn-group">
+                                                                        <a href="~/customer/delete/@item.Id" id="DeleteBtn" class="btn btn-outline btn-circle btn-sm red">
+                                                                            <i class="fa fa-trash"></i> Sil
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).on('click', '#DeleteBtn', function () {
+            var r = confirm("Silmek istediğinizden emin misiniz ?");
+            if (r) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+    </script>
+}
+
+

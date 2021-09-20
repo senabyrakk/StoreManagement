@@ -1,0 +1,68 @@
+﻿@model Foundation.Contract.CustomerContract
+@{ 
+    Layout = "_Layout";
+}
+<div class="page-wrapper-row full-height">
+    <div class="page-wrapper-middle">
+        <div class="page-container">
+            <div class="page-content-wrapper">
+                <div class="page-head">
+                    <div class="container">
+                        <div class="page-title">
+                            <h1>
+                                Ürünler
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="container">
+                        <div class="page-content-inner">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="portlet light ">
+                                        <div class="portlet-title">
+                                            <div class="caption font-red-sunglo">
+                                                <span class="caption-subject bold uppercase">Ürün</span>
+                                            </div>
+                                        </div>
+                                        <form role="form" action="/customer/save" method="post" enctype="multipart/form-data">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" asp-for="@Model.Id" />
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon input-circle-left">
+                                                                <i class="fa fa-tag"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control" asp-for="@Model.Name" required placeholder="Ürün İsmi">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon input-circle-left">
+                                                                <i class="fa fa-info"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control" asp-for="@Model.Email" required placeholder="Ürün Açıklaması">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn blue">Kaydet</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+        </div>
+    </div>
+</div>
